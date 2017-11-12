@@ -1,0 +1,23 @@
+{
+  "name": "NewsBucket",
+  "version": "0.0.1",
+  "description": "Web scraper of news sites",
+  "main": "scraper.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unicorn-84/NewsBucket.git"
+  },
+  "keywords": [
+    "scraping",
+    "parsing"
+  ],
+  "author": "unicorn-84 <dev.kapitonov@gmail.com> (https://github.com/unicorn-84)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unicorn-84/NewsBucket/issues"
+  },
+  "homepage": "https://github.com/unicorn-84/NewsBucket#readme",
+  "engines": {
+    "node": "8.9.1"
+  }
+}
