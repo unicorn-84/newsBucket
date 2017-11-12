@@ -23,5 +23,12 @@
   "homepage": "https://github.com/unicorn-84/NewsBucket#readme",
   "engines": {
     "node": "8.9.1"
+  },
+  "devDependencies": {
+    "eslint": "4.11.0",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.8.0",
+    "stylelint": "8.2.0",
+    "stylelint-config-standard": "17.0.0"
   }
 }
