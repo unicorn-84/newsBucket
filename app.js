@@ -1,13 +1,15 @@
 const express = require('express');
 const http = require('http');
-const path = require('path');
+const logger = require('./libs/log')(module);
 const config = require('./config');
 
 const app = express();
+
 app.set('port', config.get('port'));
+app.set('env', config.get('env'));
 
 http.createServer(app).listen(app.get('port'), () => {
-  console.log(`Server listening on port ${app.get('port')}`);
+  logger.info(`Server listening on port ${app.get('port')}`);
 });
 
 app.use((req, res, next) => {
@@ -32,7 +34,7 @@ app.use((req, res, next) => {
   next(error);
 });
 
-app.use((error, req, res, next) => {
+app.use((error, req, res) => {
   if (app.get('env') === 'development') {
     res.status(error.status || 500);
     res.send(`<h1>${error.message}</h1><h3>${error.status}</h3><h4>${error.stack}</h4>`);
@@ -73,7 +75,7 @@ app.use('/users', users);
 
 
 
-module.exports = app;*/
+module.exports = app; */
 
 // catch 404 and forward to error handler
 // app.use((req, res, next) => {
