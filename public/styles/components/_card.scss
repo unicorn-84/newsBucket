@@ -1,0 +1,43 @@
+.news-body {
+  padding: 0;
+}
+
+.news-card {
+  border-width: 0;
+  border-radius: 0.1rem;
+  margin: 0.5rem 0.5rem 1rem !important;
+}
+
+.news-image {
+  border-radius: 0.1rem;
+  border-width: 0;
+}
+
+.news-brand {
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  border-radius: 0.1rem;
+  color: #fff;
+  line-height: 1;
+  padding: 0.5em 1em;
+  margin: 1rem 1rem 1.5rem;
+}
+
+.news-title {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.67;
+  letter-spacing: 0.1em;
+  margin: 0 1rem 1rem;
+}
+
+a.news-link {
+  color: #333;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
