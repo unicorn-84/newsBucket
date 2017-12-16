@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const config = require('./config');
-// const logger = require('./libs/log')(module);
 
 const app = express();
 
