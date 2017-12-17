@@ -12,8 +12,7 @@ function toWriteNews(callback) {
   try {
     fs.readdirSync(folder).forEach((file) => {
       const data = fs.readFileSync(`${folder}/${file}`).toString();
-      const item = data.replace(/\\n/g, '').replace(/\\t/g, '').replace(/ {2,}/g, '');
-      massMedia = massMedia.concat(JSON.parse(item));
+      massMedia = massMedia.concat(JSON.parse(data));
     });
   } catch (err) {
     callback(err);
@@ -44,6 +43,7 @@ router.get('/', (req, res, next) => {
   toGetNews((error, massMedia) => {
     if (error) {
       log.error(error);
+      next(error);
       return;
     }
     res.render('index', { massMedia });

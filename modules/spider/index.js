@@ -21,14 +21,11 @@ function toSave(news, name, callback) {
       callback(error);
       return;
     }
-    completed += 1;
-    if (completed > count) {
-      completed = 0;
-      count = 0;
-      callback(null);
-      return;
-    }
     log.debug(`${name} completed`);
+    if (++completed === count) {
+      log.debug('callback');
+      callback(null);
+    }
   });
 }
 
@@ -54,7 +51,7 @@ function toDownload(massMedia, callback) {
   });
 }
 
-module.exports.toScrape = (filename, callback) => {
+exports.toScrape = (filename, callback) => {
   fileReader.toGetData(filename, (error, data) => {
     if (error) {
       callback(error);

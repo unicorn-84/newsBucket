@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const config = require('./config');
+const helmet = require('helmet');
 
 const app = express();
 
@@ -33,6 +34,8 @@ app.use(sassMiddleware({
   sourceMap: true,
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(helmet());
+app.use(helmet.referrerPolicy({ policy: 'no-referrer' }));
 
 app.use('/', index);
 
