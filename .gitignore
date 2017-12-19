@@ -1,3 +1,5 @@
 /.idea/
 /node_modules/
 /package-lock.json
+/public/styles/main.css
+/public/styles/main.css.map
