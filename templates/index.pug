@@ -1,5 +1,11 @@
 extends layout
-
+block head
+  include head
+block navbar
+  include components/navbar
 block content
-  h1= title
-  p Welcome to #{title}
+  include components/content
+block footer
+  include components/footer
+block scripts
+  include scripts

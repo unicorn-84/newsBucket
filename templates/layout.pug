@@ -1,7 +1,9 @@
 doctype html
-html
+html.no-js(lang="ru")
   head
-    title= title
-    link(rel='stylesheet', href='/styles/style.css')
+    block head
   body
+    block navbar
     block content
+    block footer
+    block scripts
