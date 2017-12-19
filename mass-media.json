@@ -1,0 +1,62 @@
+[
+  {
+    "name": "ria",
+    "brand": "РИА Новости",
+    "baseUrl": "https://ria.ru",
+    "color": "#00235a"
+  },
+  {
+    "name": "tass",
+    "brand": "ТАСС",
+    "baseUrl": "http://tass.ru",
+    "color": "#221f74"
+  },
+  {
+    "name": "regnum",
+    "brand": "REGNUM",
+    "baseUrl": "https://regnum.ru/main.html",
+    "color": "#194583"
+  },
+  {
+    "name": "interfax",
+    "brand": "Интерфакс",
+    "baseUrl": "http://www.interfax.ru",
+    "color": "#009B80"
+  },
+  {
+    "name": "rosbalt",
+    "brand": "РОСБАЛТ",
+    "baseUrl": "http://www.rosbalt.ru",
+    "color": "#438b57"
+  },
+  {
+    "name": "korrespondent",
+    "brand": "КорреспонденТ.net",
+    "baseUrl": "https://korrespondent.net",
+    "color": "#f73033"
+  },
+  {
+    "name": "radioSvoboda",
+    "brand": "Радио Свобода",
+    "baseUrl": "https://www.svoboda.org",
+    "color": "#a04702"
+  },
+  {
+    "name": "prime",
+    "brand": "ПРАЙМ",
+    "baseUrl": "https://1prime.ru",
+    "color": "#003067"
+  },
+  {
+    "name": "fontanka",
+    "brand": "Фонтанка",
+    "baseUrl": "http://www.fontanka.ru",
+    "color": "#ee8d39"
+  },
+  {
+    "name": "rt",
+    "brand": "RT",
+    "baseUrl": "https://russian.rt.com",
+    "color": "#77bc1f"
+  }
+]

@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const config = require('./config');
-// const logger = require('./libs/log')(module);
+const helmet = require('helmet');
 
 const app = express();
 
@@ -16,6 +16,8 @@ const index = require('./routes/index');
 
 app.set('views', path.join(__dirname, 'templates'));
 app.set('view engine', 'pug');
+
+app.disable('view cache');
 
 //  app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 if (app.get('env') === 'development') {
@@ -34,6 +36,8 @@ app.use(sassMiddleware({
   sourceMap: true,
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(helmet());
+app.use(helmet.referrerPolicy({ policy: 'no-referrer' }));
 
 app.use('/', index);
 

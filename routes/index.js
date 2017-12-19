@@ -2,19 +2,52 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const log = require('../libs/log')(module);
+const spider = require('../modules/spider');
 
 const router = express.Router();
-let massMedia;
-fs.readFile(path.join(__dirname, '../news.json'), 'utf8', (error, data) => {
-  if (error) {
-    log.error(error);
-    return;
+
+function toWriteNews(callback) {
+  const folder = './news';
+  let massMedia = [];
+  try {
+    fs.readdirSync(folder).forEach((file) => {
+      const data = fs.readFileSync(`${folder}/${file}`).toString();
+      massMedia = massMedia.concat(JSON.parse(data));
+    });
+  } catch (err) {
+    callback(err);
   }
-  massMedia = JSON.parse(data);
-});
+  massMedia.sort((a, b) => a.id - b.id);
+  callback(null, massMedia);
+  fs.writeFile('./news.json', JSON.stringify(massMedia), (error) => {
+    if (error) {
+      log.error(error);
+    }
+  });
+}
+
+function toGetNews(callback) {
+  spider.toScrape(path.join(__dirname, '../mass-media.json'), (error) => {
+    if (error) {
+      callback(error);
+      return;
+    }
+    log.debug('finished');
+    toWriteNews(callback);
+  });
+}
+
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { massMedia });
+// Temporary
+  toGetNews((error, massMedia) => {
+    if (error) {
+      log.error(error);
+      next(error);
+      return;
+    }
+    res.render('index', { massMedia });
+  });
 });
 
 module.exports = router;
