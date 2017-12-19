@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400&subset=cyrillic");
+.news-body {
+  padding: 0; }
+
+.news-card {
+  border-width: 0;
+  border-radius: 0.1rem;
+  margin: 0.5rem 0.5rem 1rem !important; }
+
+.news-image {
+  border-radius: 0.1rem;
+  border-width: 0; }
+
+.news-brand {
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  border-radius: 0.1rem;
+  color: #fff;
+  line-height: 1;
+  padding: 0.5em 1em;
+  margin: 1rem 1rem 1.5rem; }
+
+.news-title {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.67;
+  letter-spacing: 0.1em;
+  margin: 0 1rem 1rem; }
+
+a.news-link {
+  color: #333; }
+  a.news-link:hover, a.news-link:focus {
+    text-decoration: underline; }
+
+.card-columns {
+  column-count: 3; }
+  @media (max-width: 992px) {
+    .card-columns {
+      column-count: 2; } }
+  @media (max-width: 768px) {
+    .card-columns {
+      column-count: 1; } }
+
+/*# sourceMappingURL=main.css.map */

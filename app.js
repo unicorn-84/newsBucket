@@ -17,6 +17,8 @@ const index = require('./routes/index');
 app.set('views', path.join(__dirname, 'templates'));
 app.set('view engine', 'pug');
 
+app.disable('view cache');
+
 //  app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 if (app.get('env') === 'development') {
   app.use(logger('dev'));

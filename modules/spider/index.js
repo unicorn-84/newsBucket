@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const fileReader = require('./fileReader');
 const log = require('../../libs/log')(module);
 const fileSaver = require('./fileSaver');
@@ -7,6 +8,7 @@ const parser = require('./parser');
 
 let completed = 0;
 let count = 0;
+const folder = path.join(__dirname, '../../news');
 
 function toSave(news, name, callback) {
   let data;
@@ -16,13 +18,15 @@ function toSave(news, name, callback) {
     callback(err);
     return;
   }
-  fileSaver.toSaveData(path.join(__dirname, `../../news/${name}.json`), data, (error) => {
+  fileSaver.toSaveData(`${folder}/${name}.json`, data, (error) => {
     if (error) {
       callback(error);
       return;
     }
     log.debug(`${name} completed`);
     if (++completed === count) {
+      completed = 0;
+      count = 0;
       log.debug('callback');
       callback(null);
     }
@@ -52,6 +56,9 @@ function toDownload(massMedia, callback) {
 }
 
 exports.toScrape = (filename, callback) => {
+  if (!fs.existsSync(folder)) {
+    fs.mkdirSync(folder);
+  }
   fileReader.toGetData(filename, (error, data) => {
     if (error) {
       callback(error);

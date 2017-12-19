@@ -9,6 +9,10 @@ function toRequest(url, cb) {
       cb(error);
       return;
     }
+    if (res.statusCode === 302) {
+      toRequest(res.headers.location, cb);
+      return;
+    }
     cb(null, res.body);
   });
 }

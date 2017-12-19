@@ -3,10 +3,6 @@
   "version": "0.0.1",
   "description": "Web scraper of news sites",
   "main": "scraper.js",
-  "scripts": {
-    "start": "node scraper.js"
-  },
-  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/unicorn-84/NewsBucket.git"
