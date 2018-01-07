@@ -1,6 +1,6 @@
 {
   "name": "NewsBucket",
-  "version": "1.1.1",
+  "version": "1.3.0",
   "description": "Web scraper of news sites",
   "main": "scraper.js",
   "repository": {
