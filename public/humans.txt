@@ -1,0 +1,11 @@
+/* TEAM */
+Title: Web Unicorns
+Site: contact@newsbucket.ru
+Location: Saint Petersburg, Russia
+
+/* SITE */
+Last update: 2017/12/30
+Language: Russian
+Standards: HTML5, CSS3, ECMAScript 2015
+Components: Bootstrap 4
+Software: WebStorm
