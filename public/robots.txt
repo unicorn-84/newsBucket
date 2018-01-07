@@ -1,4 +1,3 @@
 User-agent: *
-Allow: /index.html
-Disallow: /
-Host: newsbucket.ru
+Disallow: /styles/
+Host: https://newsbucket.ru
