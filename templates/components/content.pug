@@ -4,9 +4,9 @@ div.container
             each item in massMedia
                 article.news-card.card(style=`box-shadow: 0 0 2px 0 ${item.color}`)
                     - if (item.image) {
-                    img.news-image.card-img-top.img-thumbnail(src=item.image)
+                    img.news-image.card-img-top.img-thumbnail(src=item.image, alt=item.title)
                     - }
                     div.news-body.card-body
-                        p.news-brand(style=`background-color: ${item.color}`)=item.brand
+                        h2.news-brand(style=`background-color: ${item.color}`)=item.brand
                         a.news-link(href=item.link)
-                            p.news-title.card-title=item.title
+                            h1.news-title.card-title=item.title

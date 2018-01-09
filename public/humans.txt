@@ -4,7 +4,7 @@ Site: contact@newsbucket.ru
 Location: Saint Petersburg, Russia
 
 /* SITE */
-Last update: 2017/12/30
+Last update: 2018/01/09
 Language: Russian
 Standards: HTML5, CSS3, ECMAScript 2015
 Components: Bootstrap 4
