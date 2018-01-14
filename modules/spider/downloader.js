@@ -1,22 +1,27 @@
+const request = require('request');
+const iconv = require('iconv-lite');
+const charsetParser = require('charset-parser');
 const log = require('../../libs/log')(module);
-const needle = require('needle');
 
-function toRequest(url, cb) {
-  needle.get(url, (error, res) => {
-    log.warn(`${url}: ${res.statusCode}`);
+exports.toDownload = (url, cb) => {
+  const options = {
+    method: 'GET',
+    url,
+    encoding: null,
+    gzip: true,
+  };
+  request(options, (error, response, body) => {
     if (error) {
       log.error(error);
       cb(error);
       return;
     }
-    if (res.statusCode === 302) {
-      toRequest(res.headers.location, cb);
+    log.info(`${url}: ${response.statusCode}`);
+    const charset = charsetParser(response.headers['content-type']);
+    if (charset === 'windows-1251') {
+      cb(null, iconv.decode(body, 'win1251'));
       return;
     }
-    cb(null, res.body);
+    cb(null, body.toString());
   });
-}
-
-exports.toDownload = (url, cb) => {
-  toRequest(url, cb);
 };

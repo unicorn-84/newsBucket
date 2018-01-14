@@ -1,77 +1,52 @@
-const path = require('path');
-const fs = require('fs');
-const fileReader = require('./fileReader');
-const log = require('../../libs/log')(module);
-const fileSaver = require('./fileSaver');
 const downloader = require('./downloader');
 const parser = require('./parser');
 
+const massMedia = new Map();
+massMedia.set('ria', 'https://ria.ru');
+massMedia.set('tass', 'https://tass.ru');
+massMedia.set('regnum', 'https://regnum.ru');
+massMedia.set('interfax', 'https://interfax.ru');
+massMedia.set('rosbalt', 'http://rosbalt.ru');
+massMedia.set('korrespondent', 'https://korrespondent.net');
+massMedia.set('radioSvoboda', 'https://svoboda.org');
+massMedia.set('prime', 'https://1prime.ru');
+massMedia.set('fontanka', 'http://www.fontanka.ru');
+massMedia.set('rt', 'https://russian.rt.com');
+
 let completed = 0;
 let count = 0;
-const folder = path.join(__dirname, '../../news');
+let news = [];
 
-function toSave(news, name, callback) {
-  let data;
-  try {
-    data = JSON.stringify(news);
-  } catch (err) {
-    callback(err);
-    return;
+function toSave(content, cb) {
+  news = news.concat(content);
+  completed += 1;
+  if (completed === count) {
+    completed = 0;
+    count = 0;
+    cb(null, news);
   }
-  fileSaver.toSaveData(`${folder}/${name}.json`, data, (error) => {
+}
+
+function toParse(data, item, cb) {
+  parser.toParseMassMedia(data, item, (error, content) => {
     if (error) {
-      callback(error);
+      cb(error);
       return;
     }
-    log.debug(`${name} completed`);
-    if (++completed === count) {
-      completed = 0;
-      count = 0;
-      log.debug('callback');
-      callback(null);
-    }
+    toSave(content, cb);
   });
 }
 
-function toParse(data, item, callback) {
-  parser.toParseMassMedia(data, item, (error, news) => {
-    if (error) {
-      callback(error);
-      return;
-    }
-    toSave(news, item.name, callback);
-  });
-}
-
-function toDownload(massMedia, callback) {
-  massMedia.forEach((item) => {
-    downloader.toDownload(item.baseUrl, (error, data) => {
+exports.toScrape = (cb) => {
+  news = [];
+  count = massMedia.size;
+  for (const entry of massMedia) {
+    downloader.toDownload(entry[1], (error, data) => {
       if (error) {
-        callback(error);
+        cb(error);
         return;
       }
-      toParse(data, item, callback);
+      toParse(data, entry, cb);
     });
-  });
-}
-
-exports.toScrape = (filename, callback) => {
-  if (!fs.existsSync(folder)) {
-    fs.mkdirSync(folder);
   }
-  fileReader.toGetData(filename, (error, data) => {
-    if (error) {
-      callback(error);
-      return;
-    }
-    let massMedia;
-    try {
-      massMedia = JSON.parse(data);
-    } catch (err) {
-      callback(err);
-      return;
-    }
-    count = massMedia.length;
-    toDownload(massMedia, callback);
-  });
 };
