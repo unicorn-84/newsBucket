@@ -24,7 +24,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 if (app.get('env') === 'development') {
   app.use(logger('dev'));
 } else {
-  app.use(logger('default'));
+  app.use(logger('combined'));
 }
 
 app.use(bodyParser.json());
