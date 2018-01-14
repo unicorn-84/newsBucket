@@ -1,6 +1,11 @@
 const newsChecker = require('../newsChecker');
 
-exports.toParse = ($, url, brand, color, cb) => {
+const prop = {
+  brand: 'ПРАЙМ',
+  color: '#003067',
+};
+
+exports.toParse = ($, item, cb) => {
   const news = [];
   try {
     const mainBlock = $('.main-news-carousel');
@@ -8,12 +13,12 @@ exports.toParse = ($, url, brand, color, cb) => {
     newsList.each(function toGetNews() {
       news.push({
         id: Math.floor((Math.random() * 100) + 1),
-        brand,
-        url,
-        color,
+        brand: prop.brand,
+        url: item[1],
+        color: prop.color,
         title: newsChecker.toCheckNews($(this).text()),
-        link: newsChecker.toCheckNews($(this).find('a').attr('href'), url),
-        image: newsChecker.toCheckNews($(this).find('img').attr('src'), url),
+        link: newsChecker.toCheckNews($(this).find('a').attr('href'), item[1]),
+        image: newsChecker.toCheckNews($(this).find('img').attr('src'), item[1]),
       });
     });
   } catch (error) {

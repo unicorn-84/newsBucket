@@ -1,17 +1,16 @@
 const cheerio = require('cheerio');
+const path = require('path');
 
-const folder = './parsers/';
-
-exports.toParseMassMedia = (data, item, callback) => {
+exports.toParseMassMedia = (data, item, cb) => {
   const $ = cheerio.load(data, {
     normalizeWhitespace: true,
   });
-  const parser = require(`${folder}${item.name}`);
-  parser.toParse($, item.baseUrl, item.brand, item.color, (error, news) => {
+  const parser = require(`${path.join(__dirname, 'parsers')}/${item[0]}`);
+  parser.toParse($, item, (error, news) => {
     if (error) {
-      callback(error);
+      cb(error);
       return;
     }
-    callback(null, news);
+    cb(null, news);
   });
 };

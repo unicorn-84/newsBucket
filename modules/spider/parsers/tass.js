@@ -1,6 +1,11 @@
 const newsChecker = require('../newsChecker');
 
-exports.toParse = ($, url, brand, color, cb) => {
+const prop = {
+  brand: 'ТАСС',
+  color: '#221f74',
+};
+
+exports.toParse = ($, item, cb) => {
   const news = [];
   try {
     const mainBlock = $('.main-slider-items');
@@ -8,22 +13,21 @@ exports.toParse = ($, url, brand, color, cb) => {
     const mainList = mainBlock.find('.main-slider__subitem').first().find('.single-item');
     news.push({
       id: Math.floor((Math.random() * 100) + 1),
-      brand,
-      url,
-      color,
+      brand: prop.brand,
+      url: item[1],
+      color: prop.color,
       title: newsChecker.toCheckNews(mainNews.find('.title').text()),
-      link: newsChecker.toCheckNews(mainNews.attr('href'), url),
+      link: newsChecker.toCheckNews(mainNews.attr('href'), item[1]),
       image: newsChecker.toCheckNews(mainNews.find('img').attr('src')),
     });
     mainList.each(function toGetNews() {
       news.push({
         id: Math.floor((Math.random() * 100) + 1),
-        brand,
-        url,
-        color,
+        brand: prop.brand,
+        url: item[1],
+        color: prop.color,
         title: newsChecker.toCheckNews($(this).find('a').last().text()),
-        link: newsChecker.toCheckNews($(this).find('a').last().attr('href'), url),
-        section: newsChecker.toCheckNews($(this).find('a').first().text()),
+        link: newsChecker.toCheckNews($(this).find('a').last().attr('href'), item[1]),
       });
     });
   } catch (error) {

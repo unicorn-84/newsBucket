@@ -1,10 +1,15 @@
 const newsChecker = require('../newsChecker');
 
+const prop = {
+  brand: 'RT',
+  color: '#77bc1f',
+};
+
 function toReplace(elem) {
   return elem.replace(/background-image:\s*url\(\s*['"]?(.*?)['"]?\s*\)[;]?/g, (match, str) => match.replace(match, str));
 }
 
-exports.toParse = ($, url, brand, color, cb) => {
+exports.toParse = ($, item, cb) => {
   const news = [];
   try {
     const mainBlock = $('.listing__rows_main-promobox').first();
@@ -12,11 +17,11 @@ exports.toParse = ($, url, brand, color, cb) => {
     mainList.each(function toGetNews() {
       news.push({
         id: Math.floor((Math.random() * 100) + 1),
-        brand,
-        url,
-        color,
+        brand: prop.brand,
+        url: item[1],
+        color: prop.color,
         title: newsChecker.toCheckNews($(this).find('a').eq(2).text()),
-        link: newsChecker.toCheckNews($(this).find('a').first().attr('href'), url),
+        link: newsChecker.toCheckNews($(this).find('a').first().attr('href'), item[1]),
         image: toReplace(newsChecker.toCheckNews($(this).find('a').first().parent().attr('style'))),
         section: newsChecker.toCheckNews($(this).find('a').eq(1).text()),
       });
