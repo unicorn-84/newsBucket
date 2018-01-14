@@ -7,11 +7,10 @@ const spider = require('../modules/spider');
 const router = express.Router();
 
 function toWriteNews(callback) {
-  const folder = './news';
   let massMedia = [];
   try {
-    fs.readdirSync(folder).forEach((file) => {
-      const data = fs.readFileSync(`${folder}/${file}`).toString();
+    fs.readdirSync(path.join(__dirname, '../news')).forEach((file) => {
+      const data = fs.readFileSync(`${path.join(__dirname, '../news')}/${file}`).toString();
       massMedia = massMedia.concat(JSON.parse(data));
     });
   } catch (err) {
@@ -19,7 +18,7 @@ function toWriteNews(callback) {
   }
   massMedia.sort((a, b) => a.id - b.id);
   callback(null, massMedia);
-  fs.writeFile('./news.json', JSON.stringify(massMedia), (error) => {
+  fs.writeFile(path.join(__dirname, '../news.json'), JSON.stringify(massMedia), (error) => {
     if (error) {
       log.error(error);
     }
