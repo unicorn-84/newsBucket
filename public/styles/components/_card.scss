@@ -1,3 +1,25 @@
+@import '../variables';
+
+@each $name, $color in $properties {
+  .#{$name} {
+    box-shadow: 0 0 2px 0 $color;
+
+    a:first-child {
+      h2 {
+        background-color: $color;
+        transition: background-color 0.3s ease-out;
+      }
+
+      &:focus,
+      &:hover {
+        h2 {
+          background-color: darken($color, 15%);
+        }
+      }
+    }
+  }
+}
+
 .news-body {
   padding: 0;
 }
