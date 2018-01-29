@@ -1,4 +1,3 @@
 User-agent: *
-Disallow: /styles/
 Host: https://newsbucket.ru
 Sitemap: https://newsbucket.ru/sitemap.xml
