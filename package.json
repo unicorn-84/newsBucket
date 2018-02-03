@@ -1,27 +1,24 @@
 {
   "name": "NewsBucket",
-  "version": "1.3.4",
+  "version": "1.3.6",
   "description": "Web scraper of news sites",
   "main": "scraper.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unicorn-84/NewsBucket.git"
+    "url": "https://unicorn-84@bitbucket.org/unicorn-84/newsbucket.git"
   },
   "keywords": [
     "scraping",
     "parsing"
   ],
-  "author": "unicorn-84 <dev.kapitonov@gmail.com> (https://github.com/unicorn-84)",
+  "author": "unicorn-84 <dev.kapitonov@gmail.com> (https://bitbucket.org/unicorn-84)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/unicorn-84/NewsBucket/issues"
-  },
-  "homepage": "https://github.com/unicorn-84/NewsBucket#readme",
+  "homepage": "https://newsbucket.ru",
   "engines": {
     "node": "8.9.1"
   },
   "devDependencies": {
-    "eslint": "4.16.0",
+    "eslint": "^4.17.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "stylelint": "^8.4.0",
@@ -29,17 +26,17 @@
   },
   "dependencies": {
     "body-parser": "^1.18.2",
-    "cheerio": "1.0.0-rc.2",
+    "cheerio": "^1.0.0-rc.2",
     "cookie-parser": "^1.4.3",
     "debug": "^3.1.0",
     "express": "^4.16.2",
-    "helmet": "3.10.0",
+    "helmet": "^3.10.0",
     "morgan": "^1.9.0",
     "nconf": "^0.10.0",
-    "needle": "2.1.1",
+    "needle": "^2.1.1",
     "node-sass-middleware": "^0.11.0",
     "pug": "^2.0.0-rc.4",
     "serve-favicon": "^2.4.5",
-    "winston": "^2.4.0"
+    "winston": "^3.0.0-rc1"
   }
 }

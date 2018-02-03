@@ -6,3 +6,5 @@
 /package-lock.json
 /news/
 /nodemon.json
+/access.log
+/error.log
