@@ -5,3 +5,5 @@
 /news.json
 /package-lock.json
 /news/
+/access.log
+/error.log

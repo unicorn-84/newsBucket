@@ -1,9 +1,9 @@
-const log = require('../../libs/log')(module);
+const log = require('../../libs/log');
 const needle = require('needle');
 
 function toRequest(url, cb) {
   needle.get(url, (error, res) => {
-    log.warn(`${url}: ${res.statusCode}`);
+    log.debug(`${url}: ${res.statusCode}`);
     if (error) {
       log.error(error);
       cb(error);
