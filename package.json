@@ -1,8 +1,7 @@
 {
   "name": "NewsBucket",
-  "version": "0.0.1",
+  "version": "1.4.7",
   "description": "Web scraper of news sites",
-  "main": "scraper.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/unicorn-84/NewsBucket.git"
@@ -28,18 +27,15 @@
     "stylelint-config-standard": "^18.0.0"
   },
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "cheerio": "1.0.0-rc.2",
-    "cookie-parser": "^1.4.3",
-    "debug": "^3.1.0",
+    "charset-parser": "^0.2.0",
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.2",
-    "helmet": "3.9.0",
-    "morgan": "^1.9.0",
+    "helmet": "^3.11.0",
+    "iconv-lite": "^0.4.19",
     "nconf": "^0.10.0",
-    "needle": "^2.1.0",
     "node-sass-middleware": "^0.11.0",
+    "performance-now": "^2.1.0",
     "pug": "^2.0.0-rc.4",
-    "serve-favicon": "^2.4.5",
-    "winston": "^2.4.0"
+    "request": "^2.83.0"
   }
 }

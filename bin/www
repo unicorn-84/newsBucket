@@ -6,9 +6,7 @@
 
 const http = require('http');
 const app = require('../app');
-const debug = require('debug')('newsbucket:server');
-const config = require('../config');
-const log = require('../libs/log')(module);
+const nconf = require('nconf');
 
 /**
  * Get port from environment and store in Express.
@@ -30,8 +28,8 @@ function normalizePort(val) {
   return false;
 }
 
-const port = normalizePort(config.get('port') || '9000');
-const host = config.get('host') || '127.0.0.1';
+const port = normalizePort(nconf.get('port') || '9000');
+const host = nconf.get('host') || '127.0.0.1';
 app.set('port', port);
 app.set('host', host);
 
@@ -46,7 +44,7 @@ const server = http.createServer(app);
  */
 
 server.listen(app.get('port'), app.get('host'), () => {
-  log.info(`Server listening on ${app.get('host')}:${app.get('port')}`);
+  console.log(`Server listening on ${app.get('host')}:${app.get('port')}`);
 });
 
 /**
@@ -65,11 +63,11 @@ function onError(error) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      log.error(`${bind} requires elevated privileges`);
+      console.log(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      log.error(`${bind} is already in use`);
+      console.log(`${bind} is already in use`);
       process.exit(1);
       break;
     default:
@@ -86,7 +84,6 @@ function onListening() {
   const bind = typeof addr === 'string'
     ? `pipe ${addr}`
     : `port ${addr.port}`;
-  debug(`Listening on ${bind}`);
 }
 
 server.on('error', onError);
