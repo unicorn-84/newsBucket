@@ -1,17 +1,30 @@
-const winston = require('winston');
+const { createLogger, format, transports } = require('winston');
 const config = require('../config');
+const path = require('path');
 
-function getLogger(module) {
-  const path = module.filename.split('\\').slice(-2).join('\\');
-  return new winston.Logger({
-    transports: [
-      new winston.transports.Console({
-        colorize: true,
-        level: config.get('env') === 'development' ? 'debug' : 'error',
-        label: path,
-      }),
-    ],
-  });
+const { timestamp } = format;
+
+const log = createLogger({
+  format: format.combine(
+    timestamp(),
+    format.simple(),
+  ),
+  transports: [
+    new transports.File({
+      filename: path.join(__dirname, '../access.log'),
+      level: 'info',
+    }),
+    new transports.File({
+      filename: 'error.log',
+      level: 'error',
+    }),
+  ],
+});
+
+if (config.get('env') !== 'production' || config.get('NODE_ENV') !== 'production') {
+  log.add(new transports.Console({
+    level: 'debug',
+  }));
 }
 
-module.exports = getLogger;
+module.exports = log;
