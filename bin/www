@@ -8,7 +8,7 @@ const http = require('http');
 const app = require('../app');
 const debug = require('debug')('newsbucket:server');
 const config = require('../config');
-const log = require('../libs/log')(module);
+const log = require('../libs/log');
 
 /**
  * Get port from environment and store in Express.
