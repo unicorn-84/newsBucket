@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const config = require('./config');
 const helmet = require('helmet');
+const log = require('./libs/log');
 
 const app = express();
 
@@ -46,6 +47,7 @@ app.use('/', index);
 app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
+  log.error(err, req.url);
   next(err);
 });
 
@@ -57,6 +59,7 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500);
+  log.error(err, req.url);
   res.render('error');
 });
 

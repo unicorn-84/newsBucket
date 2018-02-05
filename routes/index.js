@@ -14,6 +14,8 @@ function toWriteNews(callback) {
       massMedia = massMedia.concat(JSON.parse(data.toString()));
     });
   } catch (err) {
+    log.warn('massMedia JSON parse');
+    log.warn(massMedia);
     callback(err);
   }
   massMedia.sort((a, b) => a.id - b.id);
@@ -23,6 +25,7 @@ function toWriteNews(callback) {
 function toGetNews(callback) {
   spider.toScrape(path.join(__dirname, '../mass-media.json'), (error) => {
     if (error) {
+      log.warn('spider.toScrape error');
       callback(error);
       return;
     }

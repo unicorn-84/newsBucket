@@ -1,4 +1,5 @@
 const newsChecker = require('../newsChecker');
+const log = require('../../../libs/log');
 
 function toReplace(elem) {
   return elem.replace(/background-image:\s*url\(\s*['"]?(.*?)['"]?\s*\)[;]?/g, (match, str) => match.replace(match, str));
@@ -22,6 +23,7 @@ exports.toParse = ($, url, brand, color, cb) => {
       });
     });
   } catch (error) {
+    log.warn(`${brand} news parse error`);
     cb(error);
   }
   cb(null, news);
