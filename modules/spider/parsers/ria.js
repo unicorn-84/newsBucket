@@ -1,4 +1,5 @@
 const newsChecker = require('../newsChecker');
+const log = require('../../../libs/log');
 
 exports.toParse = ($, url, brand, color, cb) => {
   const news = [];
@@ -27,6 +28,7 @@ exports.toParse = ($, url, brand, color, cb) => {
       });
     });
   } catch (error) {
+    log.warn(`${brand} news parse error`);
     cb(error);
   }
   cb(null, news);
