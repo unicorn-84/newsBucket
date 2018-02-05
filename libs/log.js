@@ -15,8 +15,8 @@ const log = createLogger({
       level: 'info',
     }),
     new transports.File({
-      filename: 'error.log',
-      level: 'error',
+      filename: path.join(__dirname, '../error.log'),
+      level: 'warn',
     }),
   ],
 });

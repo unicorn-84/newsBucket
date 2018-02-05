@@ -1,4 +1,5 @@
 const newsChecker = require('../newsChecker');
+const log = require('../../../libs/log');
 
 function toReplace(elem) {
   if (/_w33_/.test(elem)) {
@@ -24,6 +25,7 @@ exports.toParse = ($, url, brand, color, cb) => {
       });
     });
   } catch (error) {
+    log.warn(`${brand} news parse error`);
     cb(error);
   }
   cb(null, news);
