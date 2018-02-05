@@ -16,7 +16,7 @@ const log = createLogger({
     }),
     new transports.File({
       filename: 'error.log',
-      level: 'error',
+      level: 'warn',
     }),
   ],
 });

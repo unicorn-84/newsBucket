@@ -15,11 +15,13 @@ function toSave(news, name, callback) {
   try {
     data = JSON.stringify(news);
   } catch (err) {
+    log.warn('"news" JSON stringify error');
     callback(err);
     return;
   }
   fileSaver.toSaveData(`${folder}/${name}.json`, data, (error) => {
     if (error) {
+      log.warn('fileSaver.toSaveData error');
       callback(error);
       return;
     }
@@ -36,6 +38,7 @@ function toSave(news, name, callback) {
 function toParse(data, item, callback) {
   parser.toParseMassMedia(data, item, (error, news) => {
     if (error) {
+      log.warn('parser.toParseMassMedia error');
       callback(error);
       return;
     }
@@ -47,6 +50,7 @@ function toDownload(massMedia, callback) {
   massMedia.forEach((item) => {
     downloader.toDownload(item.baseUrl, (error, data) => {
       if (error) {
+        log.warn('downloader.toDownload error');
         callback(error);
         return;
       }
@@ -61,6 +65,7 @@ exports.toScrape = (filename, callback) => {
   }
   fileReader.toGetData(filename, (error, data) => {
     if (error) {
+      log.warn('fileReader.toGetData error');
       callback(error);
       return;
     }
@@ -68,6 +73,7 @@ exports.toScrape = (filename, callback) => {
     try {
       massMedia = JSON.parse(data);
     } catch (err) {
+      log.warn('"massMedia.json" JSON.parse error');
       callback(err);
       return;
     }
