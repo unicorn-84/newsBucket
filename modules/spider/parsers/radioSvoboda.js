@@ -15,10 +15,11 @@ exports.toParse = ($, item, cb) => {
     mainList.each(function toGetNews() {
       news.push({
         id: Math.floor((Math.random() * 100) + 1),
-        url: item[1],
-        name: item[0],
+        url: item.url,
+        name: item.name,
+        brand: item.brand,
         title: newsChecker.toCheckNews($(this).find('.title').first().text()),
-        link: newsChecker.toCheckNews($(this).find('a').first().attr('href'), item[1]),
+        link: newsChecker.toCheckNews($(this).find('a').first().attr('href'), item.url),
         image: toReplace(newsChecker.toCheckNews($(this).find('img').first().attr('data-src'))),
       });
     });

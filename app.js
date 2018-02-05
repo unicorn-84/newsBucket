@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const config = require('./config');
 const helmet = require('helmet');
+const spider = require('./modules/spider');
 
 const app = express();
 
@@ -32,7 +33,7 @@ app.use(sassMiddleware({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   indentedSyntax: false, // true = .sass and false = .scss
-  sourceMap: true,
+  outputStyle: 'compressed',
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
