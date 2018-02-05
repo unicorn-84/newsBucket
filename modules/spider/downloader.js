@@ -5,6 +5,7 @@ function toRequest(url, cb) {
   needle.get(url, (error, res) => {
     log.debug(`${url}: ${res.statusCode}`);
     if (error) {
+      log.warn(`${url} needle error`);
       log.error(error);
       cb(error);
       return;
