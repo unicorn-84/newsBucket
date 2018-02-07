@@ -8,7 +8,6 @@ const http = require('http');
 const app = require('../app');
 const debug = require('debug')('newsbucket:server');
 const config = require('../config');
-const log = require('../libs/log')(module);
 
 /**
  * Get port from environment and store in Express.
@@ -31,7 +30,9 @@ function normalizePort(val) {
 }
 
 const port = normalizePort(config.get('port') || '9000');
+const host = config.get('host') || '127.0.0.1';
 app.set('port', port);
+app.set('host', host);
 
 /**
  * Create HTTP server.
@@ -43,8 +44,8 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, () => {
-  log.info(`Server listening on port ${app.get('port')}`);
+server.listen(app.get('port'), app.get('host'), () => {
+  console.log(`Server listening on ${app.get('host')}:${app.get('port')}`);
 });
 
 /**
@@ -63,11 +64,11 @@ function onError(error) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      log.error(`${bind} requires elevated privileges`);
+      console.log(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      log.error(`${bind} is already in use`);
+      console.log(`${bind} is already in use`);
       process.exit(1);
       break;
     default:

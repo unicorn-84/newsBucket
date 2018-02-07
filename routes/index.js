@@ -1,6 +1,5 @@
 const express = require('express');
 const now = require('performance-now');
-const log = require('../libs/log')(module);
 const spider = require('../modules/spider');
 
 const router = express.Router();
@@ -13,14 +12,10 @@ router.get('/', (req, res, next) => {
   startTimer = now();
   spider.toScrape((error, massMedia) => {
     if (error) {
-      log.error(error);
-      next(error);
-      return;
+      console.error(error);
+      return next(error);
     }
-    massMedia.sort((a, b) => a.id - b.id);
-    res.render('index', { massMedia });
-    endTimer = now();
-    log.info(((startTimer - endTimer) / 1000).toFixed(3));
+    return res.render('index', { massMedia });
   });
 });
 

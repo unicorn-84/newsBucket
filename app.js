@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const config = require('./config');
 const helmet = require('helmet');
-const spider = require('./modules/spider');
 
 const app = express();
 
