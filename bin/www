@@ -7,7 +7,7 @@
 const http = require('http');
 const app = require('../app');
 const debug = require('debug')('newsbucket:server');
-const config = require('../config');
+const nconf = require('nconf');
 
 /**
  * Get port from environment and store in Express.
@@ -29,8 +29,8 @@ function normalizePort(val) {
   return false;
 }
 
-const port = normalizePort(config.get('port') || '9000');
-const host = config.get('host') || '127.0.0.1';
+const port = normalizePort(nconf.get('port') || '9000');
+const host = nconf.get('host') || '127.0.0.1';
 app.set('port', port);
 app.set('host', host);
 

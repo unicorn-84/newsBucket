@@ -1,7 +1,7 @@
 div.container
     div.row
         div.card-columns
-            each item in news
+            each item in massMedia
                 article.news-card.card(class=`${item.name}`)
                     - if (item.image) {
                     img.news-image.card-img-top.img-thumbnail(src=item.image, alt=item.title)

@@ -4,5 +4,4 @@
 /public/styles/main.css.map
 /package-lock.json
 /news/
-/access.log
-/error.log
+/logs/error.log
