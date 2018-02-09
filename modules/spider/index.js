@@ -64,7 +64,7 @@ function toSave(content, cb) {
   if (completed === count) {
     completed = 0;
     count = 0;
-    cb(null, news);
+    // cb(null, news);
   }
 }
 
@@ -78,16 +78,22 @@ function toParse(data, item, cb) {
   });
 }
 
-exports.toScrape = (cb) => {
+function toScrape(cb) {
   news = [];
   count = massMedia.length;
-  massMedia.forEach((item) => {
-    downloader.toDownload(item.url, (error, data) => {
-      if (error) {
-        cb(error);
-        return;
-      }
-      toParse(data, item, cb);
-    });
-  });
-};
+  // massMedia.forEach((item) => {
+  //   downloader.toDownload(item.url, (error, data) => {
+  //     if (error) {
+  //       cb(error);
+  //       return;
+  //     }
+  //     toParse(data, item, cb);
+  //   });
+  // });
+  return function (req, res, next) {
+    console.log('server');
+    next({ name: 'ivan' });
+  };
+}
+
+module.exports = toScrape;
