@@ -2,11 +2,12 @@ div.container
     div.row
         div.card-columns
             each item in massMedia
-                article.news-card.card(style=`box-shadow: 0 0 2px 0 ${item.color}`)
+                article.news-card.card(class=`${item.name}`)
                     - if (item.image) {
                     img.news-image.card-img-top.img-thumbnail(src=item.image, alt=item.title)
                     - }
                     div.news-body.card-body
-                        h2.news-brand(style=`background-color: ${item.color}`)=item.brand
+                        a(href=item.url)
+                            h2.news-brand=item.brand
                         a.news-link(href=item.link)
                             h3.news-title.card-title=item.title

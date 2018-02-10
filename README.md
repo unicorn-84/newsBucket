@@ -1,6 +1,6 @@
 # NewsBucket
 **Web scraper of news sites**
 
-*Current version - 1.3.7*
+*Current version - 1.4.0*
 
 NewsBucket scrape links of news from some news sites.
