@@ -1,6 +1,6 @@
 {
   "name": "NewsBucket",
-  "version": "0.0.1",
+  "version": "1.4.7",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -289,14 +289,6 @@
       "version": "1.0.0",
       "resolved": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.0.tgz",
       "integrity": "sha1-ibTRmasr7kneFk6gK4nORi1xt2c="
-    },
-    "basic-auth": {
-      "version": "2.0.0",
-      "resolved": "https://registry.npmjs.org/basic-auth/-/basic-auth-2.0.0.tgz",
-      "integrity": "sha1-AV2z81PgLlY3d1X5YnQuiYHnu7o=",
-      "requires": {
-        "safe-buffer": "5.1.1"
-      }
     },
     "bcrypt-pbkdf": {
       "version": "1.0.1",
@@ -745,15 +737,6 @@
       "resolved": "https://registry.npmjs.org/cookie/-/cookie-0.3.1.tgz",
       "integrity": "sha1-5+Ch+e9DtMi6klxcWpboBtFoc7s="
     },
-    "cookie-parser": {
-      "version": "1.4.3",
-      "resolved": "https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.3.tgz",
-      "integrity": "sha1-D+MfoZ0AC5X0qt8fU/3CuKIDuqU=",
-      "requires": {
-        "cookie": "0.3.1",
-        "cookie-signature": "1.0.6"
-      }
-    },
     "cookie-signature": {
       "version": "1.0.6",
       "resolved": "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz",
@@ -868,6 +851,7 @@
       "version": "3.1.0",
       "resolved": "https://registry.npmjs.org/debug/-/debug-3.1.0.tgz",
       "integrity": "sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==",
+      "dev": true,
       "requires": {
         "ms": "2.0.0"
       }
@@ -1809,9 +1793,9 @@
       }
     },
     "helmet": {
-      "version": "3.10.0",
-      "resolved": "https://registry.npmjs.org/helmet/-/helmet-3.10.0.tgz",
-      "integrity": "sha512-wVu5jSeImztLqNQPc4hqGr1DG0Ki2UJVmQ1KTugIrtl1f4Zw5SqVqh6QPyw5b6/Jo/iAnyTt+pcehB0RdEJsbw==",
+      "version": "3.11.0",
+      "resolved": "https://registry.npmjs.org/helmet/-/helmet-3.11.0.tgz",
+      "integrity": "sha512-Xqf6VXmjpZoyH4reGyeBCO5nHH0NVeRQnx23LFj6AK9ocPRgZJfSH6zZ8SvNO2tB+fKhsqy1RSjIjWHVvH1X+w==",
       "requires": {
         "dns-prefetch-control": "0.1.0",
         "dont-sniff-mimetype": "1.0.0",
@@ -2681,28 +2665,6 @@
         "minimist": "0.0.8"
       }
     },
-    "morgan": {
-      "version": "1.9.0",
-      "resolved": "https://registry.npmjs.org/morgan/-/morgan-1.9.0.tgz",
-      "integrity": "sha1-0B+mxlhZt2/PMbPLU6OCGjEdgFE=",
-      "requires": {
-        "basic-auth": "2.0.0",
-        "debug": "2.6.9",
-        "depd": "1.1.1",
-        "on-finished": "2.3.0",
-        "on-headers": "1.0.1"
-      },
-      "dependencies": {
-        "debug": {
-          "version": "2.6.9",
-          "resolved": "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz",
-          "integrity": "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==",
-          "requires": {
-            "ms": "2.0.0"
-          }
-        }
-      }
-    },
     "ms": {
       "version": "2.0.0",
       "resolved": "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz",
@@ -2779,25 +2741,6 @@
             "string-width": "1.0.2",
             "window-size": "0.1.4",
             "y18n": "3.2.1"
-          }
-        }
-      }
-    },
-    "needle": {
-      "version": "2.1.1",
-      "resolved": "https://registry.npmjs.org/needle/-/needle-2.1.1.tgz",
-      "integrity": "sha1-89UB1jPmYdNM2WSMpsQveCpE0HE=",
-      "requires": {
-        "debug": "2.6.9",
-        "iconv-lite": "0.4.19"
-      },
-      "dependencies": {
-        "debug": {
-          "version": "2.6.9",
-          "resolved": "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz",
-          "integrity": "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==",
-          "requires": {
-            "ms": "2.0.0"
           }
         }
       }
@@ -3130,11 +3073,6 @@
       "requires": {
         "ee-first": "1.1.1"
       }
-    },
-    "on-headers": {
-      "version": "1.0.1",
-      "resolved": "https://registry.npmjs.org/on-headers/-/on-headers-1.0.1.tgz",
-      "integrity": "sha1-ko9dD0cNSTQmUepnlLCFfBAGk/c="
     },
     "once": {
       "version": "1.4.0",
@@ -4103,18 +4041,6 @@
           "resolved": "https://registry.npmjs.org/statuses/-/statuses-1.3.1.tgz",
           "integrity": "sha1-+vUbnrdKrvOzrPStX2Gr8ky3uT4="
         }
-      }
-    },
-    "serve-favicon": {
-      "version": "2.4.5",
-      "resolved": "https://registry.npmjs.org/serve-favicon/-/serve-favicon-2.4.5.tgz",
-      "integrity": "sha512-s7F8h2NrslMkG50KxvlGdj+ApSwaLex0vexuJ9iFf3GLTIp1ph/l1qZvRe9T9TJEYZgmq72ZwJ2VYiAEtChknw==",
-      "requires": {
-        "etag": "1.8.1",
-        "fresh": "0.5.2",
-        "ms": "2.0.0",
-        "parseurl": "1.3.2",
-        "safe-buffer": "5.1.1"
       }
     },
     "serve-static": {
