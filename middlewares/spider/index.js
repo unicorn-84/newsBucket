@@ -5,6 +5,7 @@ module.exports = (request, response, next) => {
     if (error) {
       next(error);
     }
+    massMedia.sort((a, b) => a.id - b.id);
     request.specialData = massMedia;
     next();
   });

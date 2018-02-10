@@ -6,7 +6,6 @@
 
 const http = require('http');
 const app = require('../app');
-const debug = require('debug')('newsbucket:server');
 const nconf = require('nconf');
 
 /**
@@ -85,7 +84,7 @@ function onListening() {
   const bind = typeof addr === 'string'
     ? `pipe ${addr}`
     : `port ${addr.port}`;
-  debug(`Listening on ${bind}`);
+  console.log(`Listening on ${bind}`);
 }
 
 server.on('error', onError);

@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const downloader = require('./downloader');
 const parser = require('./parser');
 
@@ -73,6 +75,13 @@ function toParse(data, item, cb) {
     if (error) {
       cb(error);
       return;
+    }
+    if (content.length === 0) {
+      fs.appendFile(path.join(__dirname, '../../logs/error.log'), `[${new Date()}]\n${item.url} not scraping\n\n`, (err) => {
+        if (err) {
+          console.log(err);
+        }
+      });
     }
     toSave(content, cb);
   });
