@@ -2,8 +2,6 @@
 /node_modules/
 /public/styles/main.css
 /public/styles/main.css.map
-/news.json
 /package-lock.json
 /news/
-/access.log
-/error.log
+/logs/error.log
