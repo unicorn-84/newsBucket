@@ -48,7 +48,7 @@ app.use((error, request, response, next) => {
     response.locals.error = {};
     fs.appendFile(path.join(__dirname, 'logs/error.log'), `[${new Date()}]\n${remoteIp}\n${method} ${url} ${error.status}\n\n`, (err) => {
       if (err) {
-        console.err(err);
+        console.error(err);
       }
     });
   } else {
