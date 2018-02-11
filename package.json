@@ -1,6 +1,6 @@
 {
   "name": "NewsBucket",
-  "version": "1.4.7",
+  "version": "0.0.0",
   "description": "Web scraper of news sites",
   "repository": {
     "type": "git",
@@ -34,7 +34,6 @@
     "iconv-lite": "^0.4.19",
     "nconf": "^0.10.0",
     "node-sass-middleware": "^0.11.0",
-    "performance-now": "^2.1.0",
     "pug": "^2.0.0-rc.4",
     "request": "^2.83.0"
   }
