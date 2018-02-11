@@ -1,5 +1,5 @@
 {
   "env": "development",
   "host": "::1",
-  "port": 9001
+  "port": 9000
 }
