@@ -6,3 +6,4 @@
 /news/
 /logs/error.log
 !/logs/
+/logs/access.log
