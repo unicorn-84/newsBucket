@@ -5,3 +5,4 @@
 /package-lock.json
 /logs/error.log
 !/logs/
+/logs/access.log
