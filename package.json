@@ -1,6 +1,6 @@
 {
   "name": "NewsBucket",
-  "version": "1.4.4",
+  "version": "2.0.0",
   "description": "Some news",
   "scripts": {
     "start": "node ./bin/www"
@@ -32,6 +32,7 @@
     "express": "^4.16.2",
     "helmet": "^3.11.0",
     "iconv-lite": "^0.4.19",
+    "mongodb": "^3.0.2",
     "nconf": "^0.10.0",
     "node-sass-middleware": "^0.11.0",
     "pug": "^2.0.0-rc.4",

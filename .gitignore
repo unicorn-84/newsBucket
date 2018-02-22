@@ -6,3 +6,4 @@
 /logs/error.log
 !/logs/
 /logs/access.log
+db.json
