@@ -23,6 +23,7 @@ app.use(sassMiddleware({
   indentedSyntax: false, // true = .sass and false = .scss
   outputStyle: 'compressed',
 }));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 app.use(helmet.referrerPolicy({ policy: 'no-referrer' }));
 app.use(spider);
