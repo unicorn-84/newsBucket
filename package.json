@@ -1,27 +1,30 @@
 {
   "name": "NewsBucket",
-  "version": "1.4.3",
-  "description": "Web scraper of news sites",
+  "version": "1.4.4",
+  "description": "Some news",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
   "repository": {
     "type": "git",
-    "url": "https://unicorn-84@bitbucket.org/unicorn-84/newsbucket.git"
+    "url": "git+https://bitbucket.org/unicorn-84/newsbucket.git"
   },
   "keywords": [
     "scraping",
     "parsing"
   ],
-  "author": "unicorn-84 <dev.kapitonov@gmail.com> (https://bitbucket.org/unicorn-84)",
+  "author": "WebUnicorns",
   "license": "MIT",
-  "homepage": "https://newsbucket.ru",
+  "homepage": "https://bitbucket.org/unicorn-84/newsbucket",
   "engines": {
     "node": "8.9.1"
   },
   "devDependencies": {
-    "eslint": "^4.17.0",
+    "eslint": "^4.18.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "stylelint": "^8.4.0",
-    "stylelint-config-standard": "^18.0.0"
+    "eslint-plugin-import": "^2.9.0",
+    "stylelint": "^9.1.1",
+    "stylelint-config-standard": "^18.1.0"
   },
   "dependencies": {
     "charset-parser": "^0.2.0",
