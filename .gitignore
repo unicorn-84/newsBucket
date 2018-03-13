@@ -1,9 +1,8 @@
-/.idea/
-/node_modules/
-/public/styles/main.css
-/public/styles/main.css.map
-/package-lock.json
-/logs/error.log
-!/logs/
-/logs/access.log
+.idea
+node_modules
+.eslintrc.yml
+.stylelintrc.yml
+public/styles/main.css
+public/styles/main.css.map
 db.json
+logs
