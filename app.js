@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const sassMiddleware = require('node-sass-middleware');
-const nconf = require('nconf');
 const helmet = require('helmet');
 const checker = require('./middlewares/checker');
 const db = require('./middlewares/db');
@@ -9,8 +8,6 @@ const logger = require('uni-logger');
 
 const app = express();
 const index = require('./routes/index');
-
-nconf.env().argv().file({ file: path.join(__dirname, 'config.json') });
 
 app.set('trust proxy', true);
 app.set('views', path.join(__dirname, 'templates'));
