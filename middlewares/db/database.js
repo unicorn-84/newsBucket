@@ -1,10 +1,8 @@
-const path = require('path');
+const config = require('../../libs/config');
 const { MongoClient } = require('mongodb');
-const nconf = require('nconf');
 
-nconf.env().argv().file({ file: path.join(__dirname, '../../config.json') });
-const dbName = nconf.get('db:mlab:name');
-const collection = nconf.get('db:mlab:collection');
+const dbName = config.get('db:mlab:name');
+const collection = config.get('db:mlab:collection');
 
 function toCheckData(database, cb) {
   database.collection(collection).find({}).toArray((error, result) => {
@@ -23,7 +21,7 @@ function toCheckData(database, cb) {
 }
 
 module.exports.connectToDb = (cb) => {
-  const url = `mongodb://${nconf.get('db:mlab:user')}:${nconf.get('db:mlab:password')}@${nconf.get('db:mlab:domain')}/${dbName}`;
+  const url = `mongodb://${config.get('db:mlab:user')}:${config.get('db:mlab:password')}@${config.get('db:mlab:domain')}/${dbName}`;
   MongoClient.connect(url, (error, db) => {
     if (error) {
       cb(error);
