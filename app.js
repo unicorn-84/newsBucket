@@ -1,11 +1,11 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
 const sassMiddleware = require('node-sass-middleware');
 const nconf = require('nconf');
 const helmet = require('helmet');
 const checker = require('./middlewares/checker');
 const db = require('./middlewares/db');
+const logger = require('uni-logger');
 
 const app = express();
 const index = require('./routes/index');
@@ -38,14 +38,8 @@ app.use((req, res, next) => {
 
 // error handler
 app.use((error, request, response, next) => {
-  const { method, url, headers } = request;
-  const remoteIp = headers['x-real-ip'];
   response.statusCode = error.status || 500;
-  fs.appendFile(path.join(__dirname, 'logs/error.log'), `[${new Date()}]\n${remoteIp}\n${method} ${url} ${response.statusCode}\n${error}\n\n`, (err) => {
-    if (err) {
-      console.error(err);
-    }
-  });
+  logger.log(`${error}\n`);
   response.sendStatus(response.statusCode);
 });
 

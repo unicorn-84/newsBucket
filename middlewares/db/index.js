@@ -4,6 +4,7 @@ module.exports = (request, response, next) => {
   database.connectToDb((error, result) => {
     if (error) {
       next(error);
+      return;
     }
     let massMedia = [];
     result.forEach((item) => {
