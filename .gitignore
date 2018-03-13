@@ -1,7 +1,5 @@
 .idea
 node_modules
-.eslintrc.yml
-.stylelintrc.yml
 public/styles/main.css
 public/styles/main.css.map
 db.json
