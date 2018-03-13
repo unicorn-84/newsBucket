@@ -1,21 +1,21 @@
 {
-  "name": "NewsBucket",
-  "version": "2.1.0",
+  "name": "newsBucket",
+  "version": "2.2.0",
   "description": "Some news",
   "scripts": {
     "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/unicorn-84/newsbucket.git"
+    "url": "git+https://github.com/unicorn-84/newsBucket.git"
   },
   "keywords": [
     "scraping",
     "parsing"
   ],
-  "author": "WebUnicorns",
+  "author": "unicorn-84",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/unicorn-84/newsbucket",
+  "homepage": "https://github.com/unicorn-84/newsBucket",
   "engines": {
     "node": "8.9.1"
   },
@@ -36,6 +36,7 @@
     "nconf": "^0.10.0",
     "node-sass-middleware": "^0.11.0",
     "pug": "^2.0.0-rc.4",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "uni-logger": "^1.1.4"
   }
 }
