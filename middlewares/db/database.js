@@ -13,7 +13,7 @@ function toCheckData(database, cb) {
     if (!result) {
       const err = new Error('Internal Server Error');
       err.status = 500;
-      cb(error);
+      cb(err);
       return;
     }
     cb(null, result);
@@ -21,7 +21,7 @@ function toCheckData(database, cb) {
 }
 
 module.exports.connectToDb = (cb) => {
-const url = `mongodb://${config.get('db:mlab:user')}:${config.get('db:mlab:password')}@${config.get('db:mlab:domain')}/${dbName}`;
+  const url = `mongodb://${config.get('db:mlab:user')}:${config.get('db:mlab:password')}@${config.get('db:mlab:domain')}/${dbName}`;
   MongoClient.connect(url, (error, db) => {
     if (error) {
       cb(error);
