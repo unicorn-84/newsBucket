@@ -13,7 +13,7 @@ function toCheckData(database, cb) {
     if (!result) {
       const err = new Error('Internal Server Error');
       err.status = 500;
-      cb(error);
+      cb(err);
       return;
     }
     cb(null, result);
