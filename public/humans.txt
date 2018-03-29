@@ -4,6 +4,6 @@ Site: mail@newsbucket.ru
 Location: Saint Petersburg, Russia
 
 /* SITE */
-Last update: 2018/03/14
+Last update: 2018/03/23
 Language: Russian
 Standards: HTML5, CSS3, ECMAScript 2015
