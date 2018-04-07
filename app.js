@@ -4,8 +4,10 @@ const sassMiddleware = require('node-sass-middleware');
 const helmet = require('helmet');
 const checker = require('./middlewares/checker');
 const db = require('./middlewares/db');
-const logger = require('uni-logger');
+const Logger = require('uni-logger');
+const config = require('./libs/config');
 
+const logger = new Logger({ path: config.get('logDir') });
 const app = express();
 const index = require('./routes/index');
 
