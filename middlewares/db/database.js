@@ -1,11 +1,9 @@
-const config = require('../../libs/config');
+const mongoose = require('mongoose');
 const { MongoClient } = require('mongodb');
-
-const dbName = config.get('db:mlab:name');
-const collection = config.get('db:mlab:collection');
+require('dotenv').config();
 
 function toCheckData(database, cb) {
-  database.collection(collection).find({}).toArray((error, result) => {
+  database.collection(process.env.COLLECTION).find({}).toArray((error, result) => {
     if (error) {
       cb(error);
       return;
@@ -21,13 +19,8 @@ function toCheckData(database, cb) {
 }
 
 module.exports.connectToDb = (cb) => {
-  const url = `mongodb://${config.get('db:mlab:user')}:${config.get('db:mlab:password')}@${config.get('db:mlab:domain')}/${dbName}`;
-  MongoClient.connect(url, (error, db) => {
-    if (error) {
-      cb(error);
-      return;
-    }
-    const database = db.db(dbName);
-    toCheckData(database, cb);
-  });
+  // mongoose.connect(process.env.DB_CONN)
+  //   .then(response => console.log(response))
+  //   .catch(error => console.log(error));
+  MongoClient.connect(process.env.DB_CONN, { useNewUrlParser: true });
 };

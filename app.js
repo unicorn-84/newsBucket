@@ -4,10 +4,9 @@ const sassMiddleware = require('node-sass-middleware');
 const helmet = require('helmet');
 const checker = require('./middlewares/checker');
 const db = require('./middlewares/db');
-const Logger = require('uni-logger');
-const config = require('./libs/config');
 
-const logger = new Logger({ path: config.get('logDir') });
+
+// const logger = new Logger({ path: config.get('logDir') });
 const app = express();
 const index = require('./routes/index');
 
@@ -15,7 +14,7 @@ app.set('trust proxy', true);
 app.set('views', path.join(__dirname, 'templates'));
 app.set('view engine', 'pug');
 
-app.use(checker);
+// app.use(checker);
 app.use(sassMiddleware({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
@@ -23,8 +22,8 @@ app.use(sassMiddleware({
   outputStyle: 'compressed',
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(helmet());
-app.use(helmet.referrerPolicy({ policy: 'no-referrer' }));
+// app.use(helmet());
+// app.use(helmet.referrerPolicy({ policy: 'no-referrer' }));
 app.use(db);
 app.use('/', index);
 
@@ -37,10 +36,10 @@ app.use((req, res, next) => {
 
 // error handler
 app.use((error, request, response, next) => {
+  console.error(error.stack);
   response.statusCode = error.status || 500;
-  logger.log(`${error}\n`);
+  // logger.log(`${error}\n`);
   response.sendStatus(response.statusCode);
 });
 
 module.exports = app;
-

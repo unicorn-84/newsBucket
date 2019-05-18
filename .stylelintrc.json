@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "rules": {
+    "string-quotes": [
+      "single"
+    ],
+    "no-eol-whitespace": null,
+    "at-rule-no-unknown": null
+  }
+}
