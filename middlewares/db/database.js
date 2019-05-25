@@ -19,8 +19,12 @@ function toCheckData(database, cb) {
 }
 
 module.exports.connectToDb = (cb) => {
-  // mongoose.connect(process.env.DB_CONN)
-  //   .then(response => console.log(response))
-  //   .catch(error => console.log(error));
-  MongoClient.connect(process.env.DB_CONN, { useNewUrlParser: true });
+
+
 };
+
+(function () {
+  mongoose.connect('mongodb://unicorn-84:?1R28}~*|%M5IqhO@ds141068.mlab.com:41068/newsbucket')
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+}());
