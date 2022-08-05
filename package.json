@@ -39,7 +39,7 @@
     "helmet": "^3.18.0",
     "iconv-lite": "^0.4.24",
     "mongodb": "^3.2.5",
-    "mongoose": "^5.5.9",
+    "mongoose": "^5.7.5",
     "nconf": "^0.10.0",
     "node-sass-middleware": "^0.11.0",
     "nodemon": "^1.19.0",
